@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <button onclick="subscribe()">subscribe</button>
+  <script>
+    addEventListener('load',async()=>{
+      let sw = await navigator.serviceWorker.register('./sw.js)')
+      console.log(sw);
+    })
+    async function subscribe(){
+      let sw = await navigator.serviceWorker.ready;
+      let push = sw.pushManager.subscribe({
+        userVisibleOnly:true,
+        applicationServerKey:'todo'
+      })
+      console.log(JSON.stringify(push));
+    }
+  </script>
+</body>
+
+
+</html>
