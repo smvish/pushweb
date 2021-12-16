@@ -18,3 +18,9 @@ self.addEventListener('push', function(e) {
     self.registration.showNotification('Hello world!', options)
   );
 });
+
+self.addEventListener('notificationclick', function(event) {
+  console.log('On notification click: ', event.notification.tag);
+
+  event.notification.close();
+})
