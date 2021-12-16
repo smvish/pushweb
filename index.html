@@ -11,6 +11,9 @@
     addEventListener('load',async()=>{
       // let sw = await navigator.serviceWorker.register('./sw.js')
       // console.log(sw);
+      Notification.requestPermission().then(function(result) {
+  console.log(result);
+});
       if ('serviceWorker' in navigator) {
        navigator.serviceWorker.register('sw.js').then(function(reg) {
        console.log('Service Worker Registered!', reg);
