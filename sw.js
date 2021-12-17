@@ -1,5 +1,6 @@
 self.addEventListener('push', function(e) {
   console.log("e",e);
+  let data = e.data.json();
   var options = {
     body: 'This notification was generated from a push!',
     icon: 'images/example.png',
@@ -16,7 +17,7 @@ self.addEventListener('push', function(e) {
     ]
   };
   e.waitUntil(
-    self.registration.showNotification('Hello world!', options)
+    self.registration.showNotification('samsung.com', { body: 'OrderId:'+ data.po_id + " status: "+data.event_type})
   );
 });
 
