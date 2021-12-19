@@ -9,11 +9,11 @@
   <button onclick="subscribe()">subscribe</button>
   <script>
     addEventListener('load',async()=>{
-      // let sw = await navigator.serviceWorker.register('./sw.js')
-      // console.log(sw);
-//       Notification.requestPermission().then(function(result) {
-//   console.log(result);
-// });
+      let sw = await navigator.serviceWorker.register('./sw.js')
+      console.log(sw);
+      Notification.requestPermission().then(function(result) {
+  console.log(result);
+});
 Notification.requestPermission(function(permission) {
   console.log(permission);
       });
@@ -40,7 +40,7 @@ Notification.requestPermission(function(permission) {
       let sw = await navigator.serviceWorker.ready;
       let push = await sw.pushManager.subscribe({
         userVisibleOnly:true,
-        applicationServerKey:'BFKJ4Yuuu1XBYBkiTxoUqJWtqVcnn46rgjDlLmxOXeFopcPf9oZXTB-nrqy-VkbwC-Zr8bRJYTuiQopU-JPsV68'
+        applicationServerKey:'BCAtEnGAsTLmzty-PDEp3nLFkecOwLkr5U5RRdhxzBa4WKftioudoI8T5U5haZBfgNUJcifLaRvi9MbqKeiJYhs'
       })
       console.log(JSON.stringify(push));
     }
