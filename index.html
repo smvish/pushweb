@@ -50,8 +50,8 @@ Notification.requestPermission(function(permission) {
         "client_token": {
             "endpoint": push.endpoint,
             "keys": {
-                "auth": push.auth,
-                "p256dh": push.p256dh
+                "auth": push.keys.auth,
+                "p256dh": push.keys.p256dh
             }
         }
       }
