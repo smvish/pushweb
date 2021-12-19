@@ -42,7 +42,7 @@ Notification.requestPermission(function(permission) {
         userVisibleOnly:true,
         applicationServerKey:'BCAtEnGAsTLmzty-PDEp3nLFkecOwLkr5U5RRdhxzBa4WKftioudoI8T5U5haZBfgNUJcifLaRvi9MbqKeiJYhs'
       })
-      let pushdata=JSON.stringify(push);
+      let pushdata=JSON.parse(JSON.stringify(push));
      
       var payload =
       {
