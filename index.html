@@ -55,7 +55,7 @@ Notification.requestPermission(function(permission) {
             }
         }
       }
-      window.parent.postMessage(message,JSON.stringify(payload));
+      window.parent.postMessage(JSON.stringify(payload));
 
       // var xhr = new XMLHttpRequest();
       // xhr.withCredentials = true;
