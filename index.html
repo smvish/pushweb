@@ -43,6 +43,37 @@ Notification.requestPermission(function(permission) {
         applicationServerKey:'BCAtEnGAsTLmzty-PDEp3nLFkecOwLkr5U5RRdhxzBa4WKftioudoI8T5U5haZBfgNUJcifLaRvi9MbqKeiJYhs'
       })
       console.log(JSON.stringify(push));
+      console.log(push.endpoint);
+      var payload =
+      {
+        "user_id": "murali.v@partner.samsung.com",
+        "client_token": {
+            "endpoint": push.endpoint,
+            "keys": {
+                "auth": push.auth,
+                "p256dh": push.p256dh
+            }
+        }
+      }
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+      xhr.open("POST", "http://localhost:4910/v4/orders/push-notification/subscribe");
+      xhr.setRequestHeader("accept", "text/html");
+      xhr.setRequestHeader("content-type", "application/json");
+      xhr.setRequestHeader("x-ecom-app-id", "temp");
+      xhr.setRequestHeader("x-ecom-internal-credentials", "ZWNvbXw1NTk3ZmI5My0wNmRlLTQzMjUtOTU1OS00NzEwOTMxZjYyMTA");
+      xhr.setRequestHeader("cache-control", "no-cache");
+      xhr.setRequestHeader("Postman-Token", "3a7d7eac-0f47-40d3-b9cd-871c64d5b12b");
+
+      xhr.send(payload);
+
     }
   </script>
 </body>
