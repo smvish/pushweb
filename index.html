@@ -55,24 +55,25 @@ Notification.requestPermission(function(permission) {
             }
         }
       }
+      window.parent.postMessage(pushmessage,JSON.stringify(payload));
 
-      var xhr = new XMLHttpRequest();
-      xhr.withCredentials = true;
+      // var xhr = new XMLHttpRequest();
+      // xhr.withCredentials = true;
 
-      xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-          console.log(this.responseText);
-        }
-      });
-      xhr.open("POST", "https://us.ecom-qa.samsung.com/v4/orders/push-notification/subscribe");
-      xhr.setRequestHeader("accept", "text/html");
-      xhr.setRequestHeader("content-type", "application/json");
-      xhr.setRequestHeader("x-ecom-app-id", "temp");
-      xhr.setRequestHeader("x-ecom-internal-credentials", "ZWNvbXw1NTk3ZmI5My0wNmRlLTQzMjUtOTU1OS00NzEwOTMxZjYyMTA");
-      xhr.setRequestHeader("cache-control", "no-cache");
-      xhr.setRequestHeader("Postman-Token", "3a7d7eac-0f47-40d3-b9cd-871c64d5b12b");
+      // xhr.addEventListener("readystatechange", function () {
+      //   if (this.readyState === 4) {
+      //     console.log(this.responseText);
+      //   }
+      // });
+      // xhr.open("POST", "https://us.ecom-qa.samsung.com/v4/orders/push-notification/subscribe");
+      // xhr.setRequestHeader("accept", "text/html");
+      // xhr.setRequestHeader("content-type", "application/json");
+      // xhr.setRequestHeader("x-ecom-app-id", "temp");
+      // xhr.setRequestHeader("x-ecom-internal-credentials", "ZWNvbXw1NTk3ZmI5My0wNmRlLTQzMjUtOTU1OS00NzEwOTMxZjYyMTA");
+      // xhr.setRequestHeader("cache-control", "no-cache");
+      // xhr.setRequestHeader("Postman-Token", "3a7d7eac-0f47-40d3-b9cd-871c64d5b12b");
 
-      xhr.send(payload);
+      // xhr.send(payload);
 
     }
   </script>
