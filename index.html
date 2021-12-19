@@ -42,16 +42,16 @@ Notification.requestPermission(function(permission) {
         userVisibleOnly:true,
         applicationServerKey:'BCAtEnGAsTLmzty-PDEp3nLFkecOwLkr5U5RRdhxzBa4WKftioudoI8T5U5haZBfgNUJcifLaRvi9MbqKeiJYhs'
       })
-      console.log(JSON.stringify(push));
-      console.log(push.endpoint);
+      let pushdata=JSON.stringify(push);
+     
       var payload =
       {
         "user_id": "murali.v@partner.samsung.com",
         "client_token": {
-            "endpoint": push.endpoint,
+            "endpoint": pushdata.endpoint,
             "keys": {
-                "auth": push.keys.auth,
-                "p256dh": push.keys.p256dh
+                "auth": pushdata.keys.auth,
+                "p256dh": pushdata.keys.p256dh
             }
         }
       }
